@@ -528,3 +528,30 @@ export default function SalonDetailPage() {
                   const labels: Record<string, string> = { monday: "Pazartesi", tuesday: "Salı", wednesday: "Çarşamba", thursday: "Perşembe", friday: "Cuma", saturday: "Cumartesi" };
                   return (
             
+                    <div key={day} className="flex items-center justify-between py-1.5">
+                      <span className="text-[11px]" style={{ color: "var(--muted)" }}>{labels[day] || day}</span>
+                      <span className="text-[11px]" style={{ color: "var(--ink)" }}>
+                        {(h as { open: boolean; start: string; end: string }).open
+                          ? `${(h as { open: boolean; start: string; end: string }).start} – ${(h as { open: boolean; start: string; end: string }).end}`
+                          : "Kapalı"}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Randevu Modalı */}
+      {selectedService && (
+        <BookingModal
+          service={selectedService}
+          salonName={salon.name}
+          onClose={() => setSelectedService(null)}
+        />
+      )}
+    </div>
+  );
+}
