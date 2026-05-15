@@ -374,4 +374,161 @@ export default function HomePage() {
         </div>
       </section>
 
-    
+      {/* ── ÖNERILEN SALONLAR ── */}
+      <section className="py-24" style={{ background: "var(--cream-2)" }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+            <div>
+              <span className="rose-line mb-4" />
+              <p className="text-[9px] tracking-[8px] uppercase mb-3" style={{ color: "var(--gold)" }}>Önerilen</p>
+              <h2 className="text-3xl sm:text-4xl font-light" style={{ color: "var(--ink)", fontFamily: "var(--font-playfair)" }}>
+                Öne Çıkan Salonlar
+              </h2>
+            </div>
+            <Link href="/salonlar"
+              className="group flex items-center gap-2 text-[10px] tracking-widest uppercase font-medium transition-all"
+              style={{ color: "var(--muted)" }}
+            >
+              Tüm Salonlar
+              <span className="flex items-center justify-center w-7 h-7 rounded-full transition-all group-hover:bg-[var(--gold)] group-hover:text-white"
+                style={{ background: "var(--cream-3)", color: "var(--muted)" }}>
+                <ChevronRight size={13} />
+              </span>
+            </Link>
+          </div>
+
+          {filtered.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.slice(0, 6).map((salon: Salon, i: number) => (
+                <SalonCard key={salon.id} salon={salon} delay={i * 80} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 rounded-2xl" style={{ background: "var(--cream)", border: "1px dashed var(--border-2)" }}>
+              <p className="text-sm" style={{ color: "var(--muted)" }}>Bu kriterlere uygun salon bulunamadı.</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── STATS ── */}
+      <section className="py-20" style={{ background: "var(--cream)" }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+            {[
+              { target: 500, suffix: "+", label: "Premium Salon" },
+              { target: 50000, suffix: "+", label: "Mutlu Müşteri" },
+              { target: 98, suffix: "%", label: "Memnuniyet" },
+              { target: 12, suffix: "+", label: "İlçe" },
+            ].map((stat) => (
+              <div key={stat.label} className="animate-fade-in-up">
+                <p className="text-3xl sm:text-4xl font-light mb-1" style={{ color: "var(--gold)", fontFamily: "var(--font-playfair)" }}>
+                  <AnimatedCounter target={stat.target} suffix={stat.suffix} />
+                </p>
+                <div className="divider-rose my-3 mx-auto w-12" />
+                <p className="text-[10px] tracking-[4px] uppercase" style={{ color: "var(--muted)" }}>{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── NASIL ÇALIŞIR ── */}
+      <section id="nasil-calisir" className="py-24 relative overflow-hidden" style={{ background: "var(--cream-2)" }}>
+        <div className="absolute inset-0 opacity-30" style={{ background: "radial-gradient(ellipse at 80% 50%, var(--gold-pale) 0%, transparent 60%)" }} />
+        <div className="relative max-w-5xl mx-auto px-6 text-center">
+          <span className="rose-line mx-auto mb-4" />
+          <p className="text-[9px] tracking-[8px] uppercase mb-3" style={{ color: "var(--gold)" }}>Nasıl Çalışır?</p>
+          <h2 className="text-3xl sm:text-4xl font-light mb-16" style={{ color: "var(--ink)", fontFamily: "var(--font-playfair)" }}>
+            Üç Adımda Randevu
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {/* Bağlantı çizgisi */}
+            <div className="hidden md:block absolute top-10 left-1/4 right-1/4 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--gold-light), transparent)" }} />
+
+            {[
+              { icon: <Search size={28} />, step: "01", title: "Salon Bul", desc: "Konum, kategori veya isme göre istediğiniz salonu kolayca bulun." },
+              { icon: <Calendar size={28} />, step: "02", title: "Tarih Seç", desc: "Uygun olan gün ve saati seçin, uzmanınızı belirleyin." },
+              { icon: <CheckCircle size={28} />, step: "03", title: "Randevu Al", desc: "Tek tıkla onaylayın. SMS ve e-posta ile hatırlatma alın." },
+            ].map((item, i) => (
+              <div key={item.step} className="animate-fade-in-up flex flex-col items-center gap-4" style={{ animationDelay: `${i * 150}ms` }}>
+                <div className="relative">
+                  <div className="w-20 h-20 rounded-2xl flex items-center justify-center" style={{ background: "var(--white)", color: "var(--gold)", boxShadow: "var(--shadow-md)" }}>
+                    {item.icon}
+                  </div>
+                  <span className="absolute -top-2 -right-2 text-[9px] tracking-widest font-medium px-2 py-0.5 rounded-full" style={{ background: "var(--gold)", color: "#fff" }}>
+                    {item.step}
+                  </span>
+                </div>
+                <h3 className="text-lg font-medium" style={{ color: "var(--ink)", fontFamily: "var(--font-playfair)" }}>{item.title}</h3>
+                <p className="text-sm leading-relaxed max-w-xs" style={{ color: "var(--muted)" }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-24" style={{ background: "var(--cream)" }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-14">
+            <span className="rose-line mx-auto mb-4" />
+            <p className="text-[9px] tracking-[8px] uppercase mb-3" style={{ color: "var(--gold)" }}>Yorumlar</p>
+            <h2 className="text-3xl font-light" style={{ color: "var(--ink)", fontFamily: "var(--font-playfair)" }}>
+              Müşterilerimiz Ne Diyor?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { name: "Selin A.", salon: "Atelier Bella", text: "Hayatımda gittiğim en iyi salon. Saç boyamam muhteşem çıktı, kesinlikle tavsiye ederim.", rating: 5 },
+              { name: "Melis K.", salon: "Lumière Estetik", text: "Cilt bakımından sonra farkı hemen hissettim. Çok profesyonel ekip ve hijyenik ortam.", rating: 5 },
+              { name: "Zeynep T.", salon: "Vera Spa Lounge", text: "Spa deneyimi harika. Rezervasyon sistemi çok kolay, bir tıkla hallediyorsunuz.", rating: 5 },
+            ].map((review, i) => (
+              <div key={review.name} className="animate-fade-in-up rounded-2xl p-6" style={{ animationDelay: `${i * 100}ms`, background: "var(--white)", boxShadow: "var(--shadow-sm)", border: "1px solid var(--border-ink)" }}>
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(review.rating)].map((_, j) => (
+                    <Star key={j} size={12} fill="var(--gold)" stroke="var(--gold)" strokeWidth={1.5} />
+                  ))}
+                </div>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--muted)" }}>&ldquo;{review.text}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid var(--border-ink)" }}>
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-medium" style={{ background: "var(--gold-pale)", color: "var(--gold)" }}>
+                    {review.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-[12px] font-medium" style={{ color: "var(--ink)" }}>{review.name}</p>
+                    <p className="text-[10px]" style={{ color: "var(--muted-2)" }}>{review.salon}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-28 relative overflow-hidden" style={{ background: "var(--ink)" }}>
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 60% 50%, rgba(184,112,96,0.18) 0%, transparent 65%)" }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--gold-dim), transparent)" }} />
+        <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+          <p className="text-[9px] tracking-[8px] uppercase mb-5" style={{ color: "var(--gold-light)" }}>Salon Sahibi misiniz?</p>
+          <h2 className="text-3xl sm:text-5xl font-light mb-6 leading-snug" style={{ color: "#fff", fontFamily: "var(--font-playfair)" }}>
+            Salonunuzu En Premium<br />
+            <em className="not-italic" style={{ color: "var(--gold-light)", fontStyle: "italic" }}>Platforma Ekleyin</em>
+          </h2>
+          <p className="text-sm leading-relaxed mb-10 opacity-80" style={{ color: "rgba(255,255,255,0.75)" }}>
+            Online randevu yönetimi, müşteri takibi ve daha fazlasıyla işinizi büyütün.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/salon-ekle" className="btn-gold rounded-xl justify-center py-3.5 px-8 text-[11px]">
+              Ücretsiz Başla <ArrowRight size={15} />
+            </Link>
+            <Link href="/kurumsal" className="btn-outline rounded-xl justify-center py-3.5 px-8 text-[11px]">
+              Daha Fazla Bilgi
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
