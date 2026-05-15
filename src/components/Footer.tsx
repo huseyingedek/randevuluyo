@@ -32,19 +32,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <Link href="/" className="flex flex-col leading-none mb-4 w-fit">
-            <span
-              className="text-xl tracking-[3px] font-light"
-              style={{ color: "var(--gold)", fontFamily: "var(--font-playfair)" }}
-            >
-              GLAMBOOK
-            </span>
-            <span className="text-[9px] tracking-[5px] uppercase" style={{ color: "var(--muted-2)" }}>
-              STUDIO
-            </span>
+          <Link href="/" className="flex items-baseline gap-0.5 leading-none mb-4 w-fit">
+            <span className="text-xl tracking-[2px] font-light" style={{ color: "var(--ink)", fontFamily: "var(--font-playfair)" }}>randevu</span>
+            <span className="text-xl tracking-[2px] font-semibold" style={{ color: "var(--gold)", fontFamily: "var(--font-playfair)" }}>luyo</span>
           </Link>
           <p className="text-sm leading-relaxed max-w-xs mb-6" style={{ color: "var(--muted)" }}>
-            İstanbul&apos;un en seçkin güzellik salonlarını bir araya getiren premium randevu platformu.
+            Türkiye&apos;nin en seçkin güzellik salonlarını bir araya getiren premium randevu platformu.
           </p>
           {/* Socials */}
           <div className="flex gap-3">
@@ -101,10 +94,10 @@ export default function Footer() {
         className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3"
       >
         <p className="text-[11px]" style={{ color: "var(--muted-2)" }}>
-          © 2026 GlamBook Studio. Tüm hakları saklıdır.
+          © 2026 randevuluyo. Tüm hakları saklıdır.
         </p>
         <div className="flex items-center gap-2">
-          <span className="text-[11px]" style={{ color: "var(--muted-2)" }}>İstanbul ile yapıldı</span>
+          <span className="text-[11px]" style={{ color: "var(--muted-2)" }}>Türkiye ile yapıldı</span>
           <span style={{ color: "var(--gold)" }}>♥</span>
         </div>
       </div>

@@ -222,7 +222,7 @@ export default function HomePage() {
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <p className="animate-fade-in text-[9px] tracking-[10px] uppercase mb-5 opacity-85" style={{ color: "var(--gold-light)" }}>
-            İstanbul&apos;un En Seçkin Rezervasyon Platformu
+            Türkiye&apos;nin En Seçkin Rezervasyon Platformu
           </p>
 
           <h1 className="animate-fade-in-up delay-100 font-light leading-tight mb-6"
@@ -236,7 +236,7 @@ export default function HomePage() {
           </h1>
 
           <p className="animate-fade-in delay-200 text-sm sm:text-base leading-relaxed mb-10 opacity-90" style={{ color: "rgba(255,255,255,0.85)" }}>
-            İstanbul&apos;un en iyi güzellik salonlarına tek tıkla ulaşın,<br className="hidden sm:block" />
+            Türkiye&apos;nin en iyi güzellik salonlarına tek tıkla ulaşın,<br className="hidden sm:block" />
             anında randevu alın.
           </p>
 
@@ -248,7 +248,7 @@ export default function HomePage() {
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Salon veya hizmet ara..."
+                placeholder="Salon, hizmet veya şehir ara..."
                 className="flex-1 text-sm outline-none bg-transparent"
                 style={{ color: "var(--ink)" }}
               />

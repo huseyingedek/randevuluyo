@@ -37,18 +37,18 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none group">
+        <Link href="/" className="flex items-baseline gap-0.5 leading-none group">
           <span
-            className="text-lg tracking-[3px] font-light transition-colors"
-            style={{ color: "var(--gold)", fontFamily: "var(--font-playfair)" }}
+            className="text-xl tracking-[2px] font-light transition-colors"
+            style={{ color: "var(--ink)", fontFamily: "var(--font-playfair)" }}
           >
-            GLAMBOOK
+            randevu
           </span>
           <span
-            className="text-[8px] tracking-[5px] uppercase"
-            style={{ color: "var(--muted-2)" }}
+            className="text-xl tracking-[2px] font-semibold transition-colors"
+            style={{ color: "var(--gold)", fontFamily: "var(--font-playfair)" }}
           >
-            STUDIO
+            luyo
           </span>
         </Link>
 
